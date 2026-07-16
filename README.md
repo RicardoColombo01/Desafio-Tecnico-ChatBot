@@ -35,22 +35,30 @@ O banco de dados `loja.db` conta com as tabelas:
    
 ```Bash
 .\venv\Scripts\activate
-Instale as dependências:
+```
 
+```Instale as dependências:
 
 pip install fastapi uvicorn cohere google-genai
-Inicie o servidor:
+```
 
+```Inicie o servidor:
 
 python -m uvicorn main:app --reload
+```
 
-2. Frontend (React)
+```2. Frontend (React)
+
 Navegue até a pasta do frontend:
 
-
 cd frontend
-Instale as dependências e inicie:
+```
 
+```Instale as dependências e inicie:
 
 npm install
-npm start
+npm run dev
+```
+``` ### Em caso de erro use o comando 
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
