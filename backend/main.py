@@ -18,16 +18,21 @@ except ImportError:
 
 app = FastAPI(title="Chatbot de Loja - Inteligente e Seguro")
 
+# CORS atualizado para permitir a conexão segura com a sua Vercel e o seu ambiente local
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "https://desafio-tecnico-chat-bot.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Se você tiver uma chave da Cohere, cole aqui. Se não tiver ou der erro, o sistema local assume!
-COHERE_API_KEY = "SUA_CHAVE_COHERE_AQUI"
+COHERE_API_KEY = "CORSMiddleware"
 
 # Inicializa o cliente se a biblioteca estiver disponível e a chave não for a padrão
 co = None
@@ -64,7 +69,7 @@ def resolver_pergunta_localmente(pergunta: str):
     if not pergunta_clean:
         sql = "NENHUMA"
         resposta = (
-            "Olá! Como posso te ajudar hoje? 😊\n\n"
+            "Olá! Como posso te ajudar hoje? \n\n"
             "Você pode me perguntar sobre:\n"
             "• Os produtos em estoque (ex: 'Quais produtos temos no estoque?')\n"
             "• O preço de um item (ex: 'Qual é o preço do Smartphone X?')"
@@ -88,7 +93,7 @@ def resolver_pergunta_localmente(pergunta: str):
         # RESPOSTA AUTOMÁTICA DE AJUDA (Caso nenhuma palavra-chave acima seja identificada)
         sql = "NENHUMA"
         resposta = (
-            "Não entendi muito bem sua pergunta. 🤔\n\n"
+            "Não entendi muito bem sua pergunta. \n\n"
             "Sou o assistente virtual da loja e posso te ajudar com as seguintes opções:\n"
             "• Estoque: Pergunte 'Quais produtos temos?'\n"
             "• Preços: Pergunte 'Qual o preço do Smartphone X?'\n\n"
