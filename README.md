@@ -43,6 +43,7 @@ Inicie o servidor:
 
 
 python -m uvicorn main:app --reload
+
 2. Frontend (React)
 Navegue até a pasta do frontend:
 
