@@ -66,8 +66,8 @@ def resolver_pergunta_localmente(pergunta: str):
         resposta = (
             "Olá! Como posso te ajudar hoje? 😊\n\n"
             "Você pode me perguntar sobre:\n"
-            "• Os produtos em estoque (ex: *'Quais produtos temos no estoque?'*)\n"
-            "• O preço de um item (ex: *'Qual é o preço do Smartphone X?'*)"
+            "• Os produtos em estoque (ex: 'Quais produtos temos no estoque?')\n"
+            "• O preço de um item (ex: 'Qual é o preço do Smartphone X?')"
         )
         return sql, resposta
 
@@ -90,8 +90,8 @@ def resolver_pergunta_localmente(pergunta: str):
         resposta = (
             "Não entendi muito bem sua pergunta. 🤔\n\n"
             "Sou o assistente virtual da loja e posso te ajudar com as seguintes opções:\n"
-            "• **Estoque:** Pergunte *'Quais produtos temos?'*\n"
-            "• **Preços:** Pergunte *'Qual o preço do Smartphone X?'*\n\n"
+            "• Estoque: Pergunte 'Quais produtos temos?'\n"
+            "• Preços: Pergunte 'Qual o preço do Smartphone X?'\n\n"
             "Como posso te ajudar agora?"
         )
         return sql, resposta
@@ -115,7 +115,7 @@ def resolver_pergunta_localmente(pergunta: str):
             if preco: detalhes.append(f"R$ {preco:.2f}")
             if estoque is not None: detalhes.append(f"{estoque} unidades em estoque")
             
-            resposta += f"• **{nome}**: {', '.join(detalhes)}\n"
+            resposta += f"• {nome}: {', '.join(detalhes)}\n"
             
         resposta += "\nPrecisa de ajuda com mais alguma coisa?"
 
